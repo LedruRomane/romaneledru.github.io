@@ -1,7 +1,10 @@
 <template>
-  <h1>wesh</h1>
+  <navbar></navbar>
 </template>
 
 <script>
-export default {}
+import Navbar from "../components/navbar";
+export default {
+  components: {Navbar}
+}
 </script>
