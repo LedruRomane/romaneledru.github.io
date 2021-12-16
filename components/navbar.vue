@@ -24,9 +24,9 @@ export default {
   data() {
       return {
         items: [
-          {text: 'Buy', href: '#', active: true},
+          {text: 'Buy', href: '#', active: false},
           {text: 'Mixer', href: '#', active: false},
-          {text: 'Swap', href: '#', active: false},
+          {text: 'Swap', href: '#', active: true},
         ]
       }
   },
@@ -58,8 +58,33 @@ export default {
 </script>
 
 <style scoped>
+
   .selected {
     background-color: rgb(179, 179, 179);
     border-radius: 10px;
+  }
+  .navbar {
+    font-size: large;
+  }
+  .nav {
+    margin-top : 2%;
+    padding-left: 1%;
+    padding-right: 1%;
+    background-color: rgba(33, 33, 33, 0.5);
+    border-radius: 10px;
+  }
+  .overlay{
+    position: absolute;
+    background-color: rgb(179, 179, 179);
+    border-radius: 10px;
+    z-index: -1;
+    transition: .3s ease left, width, opacity;
+    opacity: 0;
+  }
+  .overlay.active{
+    opacity: 1;
+  }
+  .nav a {
+    color: white;
   }
 </style>
