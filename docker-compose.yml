@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  mixpro:
+    build: ./
+    container_name: mixpro
+    restart: always
+    ports:
+      - "3726:3000"
+    command: "npm run dev"
+    networks:
+      - nuxt-network
+networks:
+  nuxt-network:
+    driver: bridge
