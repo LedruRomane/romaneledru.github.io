@@ -4,15 +4,14 @@
     <b-navbar variant="faded" type="dark" class="d-flex">
       <b-navbar-brand tag="h1" class="mb-0"> Logo </b-navbar-brand>
       <b-nav class="mx-auto">
-        <b-nav-item
-          v-for="item in items"
-          :key="item.text"
-          :class="{'selected': item.active}"
-          @mouseover="navTransitionOn"
-          @mouseout="navTransitionOff"
-          @click="selectNav(item)">
-          {{ item.text }}
-        </b-nav-item>
+        <nuxt-link v-for="item in items" :key="item.text" :to="item.href">
+          <b-nav-item
+            :href="item.href"
+            @mouseover="navTransitionOn"
+            @mouseout="navTransitionOff">
+            {{ item.text }}
+          </b-nav-item>
+        </nuxt-link>
       </b-nav>
     </b-navbar>
   </div>
@@ -24,9 +23,9 @@ export default {
   data() {
       return {
         items: [
-          {text: 'Buy', href: '#', active: false},
-          {text: 'Mixer', href: '#', active: false},
-          {text: 'Swap', href: '#', active: true},
+          {text: 'Buy', href: '/'},
+          {text: 'Mixer', href: '/mixer'},
+          {text: 'Swap', href: '/swap'},
         ]
       }
   },
@@ -58,8 +57,7 @@ export default {
 </script>
 
 <style scoped>
-
-  .selected {
+  .nuxt-link-exact-active {
     background-color: rgb(179, 179, 179);
     border-radius: 10px;
   }
@@ -86,5 +84,6 @@ export default {
   }
   .nav a {
     color: white;
+    text-decoration: none;
   }
 </style>
