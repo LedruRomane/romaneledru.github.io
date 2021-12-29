@@ -1,6 +1,6 @@
 <template>
   <div id="buy">
-    <div class="content_buy">
+    <div class="card-content">
       <div>
         <b-card title="Buy">
           <b-card-text>
@@ -39,10 +39,7 @@ export default {
   justify-content: center;
   margin-top:3%;
 }
-.content_buy{
-  max-width: 410px;
-  background-color: beige;
-}
+
 h2{
   padding: 0px 10px;
   height: 80px;

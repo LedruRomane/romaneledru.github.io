@@ -12,6 +12,8 @@ services:
       - nuxt-network
     volumes:
       - '.:/var/www/mixpro'
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
 networks:
   nuxt-network:
     driver: bridge
