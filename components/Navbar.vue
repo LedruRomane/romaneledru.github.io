@@ -23,8 +23,7 @@ export default {
   data() {
       return {
         items: [
-          {text: 'Buy', href: '/'},
-          {text: 'Mixer', href: '/mixer'},
+          {text: 'Mixer', href: '/'},
           {text: 'Swap', href: '/swap'},
         ]
       }
