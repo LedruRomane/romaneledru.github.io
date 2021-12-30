@@ -5,14 +5,17 @@
         <b-card title="Swap">
           <b-form class="content" @submit="onSubmit">
             <div class="row">
-              <b-form-input v-model="from.value" placeholder="0.0" type="number"></b-form-input>
+              <b-form-input v-model="from.value" placeholder="0.0" type="number" class="input"></b-form-input>
               <multiselect v-model="from.currency"
+                           v-b-tooltip.hover.left
                            :options="currencies"
                            select-label=""
                            deselect-label=""
                            placeholder=""
                            label="text"
                            track-by="text"
+                           class="multiselect"
+                           title="Select a token"
               >
                 <template slot="option" slot-scope="props">
                   <div class="option__desc">
@@ -27,15 +30,18 @@
                   <span class="option__title">{{ props.option.text }}</span>
                 </template>
               </multiselect>
-
-              <b-form-input v-model="to.value" placeholder="0.0" type="number"></b-form-input>
+              <b-img center src="~/assets/currencies/arrow.png" class="arrow"></b-img>
+              <b-form-input v-model="to.value" placeholder="0.0" type="number"  class="input"></b-form-input>
               <multiselect v-model="to.currency"
+                           v-b-tooltip.hover.left
                            :options="currencies"
                            select-label=""
                            deselect-label=""
                            placeholder=""
                            label="text"
                            track-by="text"
+                           class="multiselect"
+                           title="Select a token"
               >
                 <template slot="option" slot-scope="props">
                   <div class="option__desc">
@@ -51,7 +57,7 @@
                 </template>
               </multiselect>
 
-              <b-button variant="success" type="submit">Connect portfolio</b-button>
+              <b-button type="submit" class="submit button">Connect portfolio</b-button>
             </div>
           </b-form>
         </b-card>

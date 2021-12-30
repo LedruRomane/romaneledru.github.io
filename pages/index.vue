@@ -7,7 +7,7 @@
             <div class="container">
               <h5 v-b-tooltip.hover.left title="Enter the bitcoin address to receive bitcoins to">
                 Receiver's bitcoin address</h5>
-              <div class="row" v-for="(address, index) in addresses" :key="index">
+              <div v-for="(address, index) in addresses" :key="index" class="row">
                 <b-form-group
                   id="group-email"
                   label="Email address:"
@@ -34,9 +34,9 @@
                     :options="delays" />
                 </b-form-group>
                 <b-col class="col-sm smol">
-                <b-button @click="addAddress" v-if="index === 0" class="button add">
+                <b-button v-if="index === 0" class="button add" @click="addAddress">
                   Add another address</b-button>
-                <b-button @click="removeAddress(index)" v-else class="button add">
+                <b-button v-else class="button add" @click="removeAddress(index)">
                   Delete address</b-button>
                 </b-col>
               </div>
@@ -73,7 +73,7 @@
 
 <script>
 export default {
-  name: "mixer",
+  name: "Mixer",
   data() {
     return {
       addresses: [
@@ -81,25 +81,6 @@ export default {
       ],
       serviceFee: 0.6,
       mixingCode: null
-    }
-  },
-  methods: {
-    onSubmit(event) {
-      event.preventDefault()
-      alert(JSON.stringify(this.getForm())) // here to call backend
-    },
-    addAddress() {
-      this.addresses.push({email: null, delay: 0})
-    },
-    removeAddress(index) {
-      this.$delete(this.addresses, index);
-    },
-    getForm() {
-      return {
-        addresses: this.addresses,
-        serviceFee: this.serviceFee,
-        mixingCode: this.mixingCode
-      }
     }
   },
   computed: {
@@ -131,6 +112,25 @@ export default {
         {text: '1.586 %', value: 1.586},
         {text: '1.904 %', value: 1.904},
       ]
+    }
+  },
+  methods: {
+    onSubmit(event) {
+      event.preventDefault()
+      alert(JSON.stringify(this.getForm())) // here to call backend
+    },
+    addAddress() {
+      this.addresses.push({email: null, delay: 0})
+    },
+    removeAddress(index) {
+      this.$delete(this.addresses, index);
+    },
+    getForm() {
+      return {
+        addresses: this.addresses,
+        serviceFee: this.serviceFee,
+        mixingCode: this.mixingCode
+      }
     }
   }
 }
